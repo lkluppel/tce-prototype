@@ -428,8 +428,8 @@ with st.sidebar:
 
 # Lightweight auto-refresh
 if auto:
-    #time.sleep(2)
-    #st.rerun()
+    time.sleep(2)
+    st.rerun()
 
 if not session_code:
     st.stop()
@@ -716,5 +716,6 @@ else:
     st.error(f"Unknown phase: {phase}")
 
 st.caption("Tip: open two browser tabs to the same URL, join with the same session code, but different roles + PINs.")
+
 
 
