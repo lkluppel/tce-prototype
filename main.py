@@ -8,6 +8,7 @@ import time
 import random
 import sqlite3
 from datetime import datetime, timezone
+from streamlit_autorefresh import st_autorefresh
 
 import streamlit as st
 
@@ -448,6 +449,9 @@ else:
         st.warning("Enter the correct Producer PIN to view/act.")
         st.stop()
 
+# Auto-refresh every 1 second so the other tab updates without clicking anything
+st_autorefresh(interval=1000, key="auto_refresh")
+
 state = sess["state"]
 phase = state["phase"]
 
@@ -712,3 +716,4 @@ else:
     st.error(f"Unknown phase: {phase}")
 
 st.caption("Tip: open two browser tabs to the same URL, join with the same session code, but different roles + PINs.")
+
